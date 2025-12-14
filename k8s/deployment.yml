@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-capstone-app
+  labels:
+    app: my-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - name: my-app
+          image: 319220143636.dkr.ecr.ap-south-1.amazonaws.com/k8s:latest
+	resources:
+            requests:
+              cpu: "100m"
+            limits:
+              cpu: "200m"
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: ecr-secret
