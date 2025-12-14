@@ -22,7 +22,7 @@ spec:
               cpu: "100m"
             limits:
               cpu: "200m"
-      ports:
+            ports:
             - containerPort: 80
       imagePullSecrets:
         - name: ecr-secret
